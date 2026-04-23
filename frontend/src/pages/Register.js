@@ -22,7 +22,7 @@ export default function Register() {
   return (
     <div className="auth-container">
       <div className="auth-box">
-        <h2>Register</h2>
+        <h2>Register</h2> 
   
         <input className="auth-input" placeholder="Name" onChange={e => setForm({...form, name: e.target.value})} />
         <input className="auth-input" placeholder="Email" onChange={e => setForm({...form, email: e.target.value})} />

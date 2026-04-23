@@ -1,23 +1,11 @@
 /* auth.css */
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to right, #4facfe, #00f2fe);
-  }
-  
-  .auth-container {
-    width: 350px;
-    padding: 30px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-    text-align: center;
-  }
+.auth-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+}
   
   .auth-container h2 {
     margin-bottom: 20px;

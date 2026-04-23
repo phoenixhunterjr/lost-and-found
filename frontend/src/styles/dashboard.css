@@ -1,10 +1,14 @@
-/* dashboard.css */
 
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f0f2f5;
+}
 .dashboard {
-    max-width: 900px;
-    margin: 30px auto;
-    font-family: Arial, sans-serif;
-  }
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+}
   
   .header {
     display: flex;
