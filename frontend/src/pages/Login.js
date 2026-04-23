@@ -27,21 +27,24 @@ export default function Login() {
         <input
           className="auth-input"
           placeholder="Email"
-          onChange={e => setForm({...form, email: e.target.value})}
+          onChange={e => setForm({ ...form, email: e.target.value })}
         />
   
         <input
           className="auth-input"
           type="password"
           placeholder="Password"
-          onChange={e => setForm({...form, password: e.target.value})}
+          onChange={e => setForm({ ...form, password: e.target.value })}
         />
   
         <button className="auth-button" onClick={handleSubmit}>
           Login
         </button>
   
-        <p>No account? <Link to="/register">Register</Link></p>
+        <p>
+          No account? <Link to="/register">Register</Link>
+        </p>
       </div>
     </div>
   );
+};
