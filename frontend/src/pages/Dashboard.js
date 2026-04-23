@@ -12,27 +12,36 @@ export default function Dashboard() {
   const headers = { Authorization: `Bearer ${token}` };
 
   const fetchItems = async () => {
-    const res = await axios.get('http://localhost:8000/api/items', { headers });
+    const res = await axios.get('https://lost-and-found-1-7wnr.onrender.com/api/items', { headers });
     setItems(res.data);
   };
 
   useEffect(() => {
-    if (!token) { navigate('/'); return; }
+
+    if (!token) { 
+  
+      navigate('/'); 
+  
+      return; 
+  
+    }
+  
     fetchItems();
-  }, []);
+  
+  }, [token]);
 
   const addItem = async () => {
-    await axios.post('http://localhost:8000/api/items', form, { headers });
+    await axios.post('https://lost-and-found-1-7wnr.onrender.com/api/items', form, { headers });
     fetchItems();
   };
 
   const deleteItem = async (id) => {
-    await axios.delete(`http://localhost:8000/api/items/${id}`, { headers });
+    await axios.delete(`https://lost-and-found-1-7wnr.onrender.com/api/items/${id}`, { headers });
     fetchItems();
   };
 
   const searchItems = async () => {
-    const res = await axios.get(`http://localhost:8000/api/items/search?name=${search}`, { headers });
+    const res = await axios.get(`https://lost-and-found-1-7wnr.onrender.com/api/items/search?name=${search}`, { headers });
     setItems(res.data);
   };
 

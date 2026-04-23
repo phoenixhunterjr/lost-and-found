@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../styles/auth.css';
+import { Link } from 'react-router-dom'; 
 
 export default function Register() {
   const [form, setForm] = useState({ name: '', email: '', password: '' });
@@ -10,7 +11,7 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8000/api/register', form);
+      await axios.post('https://lost-and-found-1-7wnr.onrender.com/api/register', form);
       alert('Registered! Please login.');
       navigate('/');
     } catch (err) {
@@ -25,7 +26,7 @@ export default function Register() {
       <input placeholder="Email" onChange={e => setForm({...form, email: e.target.value})} /><br/>
       <input placeholder="Password" type="password" onChange={e => setForm({...form, password: e.target.value})} /><br/>
       <button onClick={handleSubmit}>Register</button>
-      <p>Already have an account? <a href="/">Login</a></p>
+      <p>Already have an account? <Link to="/">Login</Link></p>
     </div>
   );
 }

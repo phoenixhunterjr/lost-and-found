@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../styles/auth.css';
+import { Link } from 'react-router-dom'; 
 
 export default function Login() {
   const [form, setForm] = useState({ email: '', password: '' });
@@ -10,7 +11,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:8000/api/login', form);
+      const res = await axios.post('https://lost-and-found-1-7wnr.onrender.com/api/login', form);
       localStorage.setItem('token', res.data.token);
       navigate('/dashboard');
     } catch (err) {
@@ -35,9 +36,7 @@ export default function Login() {
   
       <button onClick={handleSubmit}>Login</button>
   
-      <p>
-        No account? <a href="/register">Register</a>
-      </p>
+      <p>No account? <Link to="/register">Register</Link></p>
     </div>
   );
 }
