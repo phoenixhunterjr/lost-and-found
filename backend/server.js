@@ -5,16 +5,20 @@ require('dotenv').config();
 
 const app = express();
 
-// 🔥 FORCE CORS (guaranteed fix)
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "*");
-  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
-  next();
+// Root route
+app.get('/', (req, res) => {
+  res.send('API is running 🚀');
 });
 
-// also keep cors middleware
-app.use(cors());
+// Proper CORS
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://lost-and-found-2-cp7t.onrender.com'
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true
+}));
 
 app.use(express.json());
 
@@ -25,8 +29,8 @@ app.use('/api/items', require('./routes/items'));
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log('MongoDB Connected');
-    app.listen(process.env.PORT || 8000, () =>
-      console.log('Server running on port 8000')
-    );
+    app.listen(process.env.PORT || 8000, () => {
+      console.log('Server running on port 8000');
+    });
   })
   .catch(err => console.log(err));
